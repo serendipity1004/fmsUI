@@ -1,0 +1,19 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  src: url("/fonts/NotoSansCJKkr-hinted/NotoSansCJKkr-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NotoSansCJKkr";
+  font-weight: bold;
+  src: url("/fonts/NotoSansCJKkr-hinted/NotoSansCJKkr-Bold.otf") format("opentype");
+}

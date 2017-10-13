@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{title}}</title>
+    <link rel="stylesheet" href="/vendor/bootstrap-4.0.0-beta/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-4.0.0-beta/dist/css/bootstrap-grid.css">
+    <link rel="stylesheet" href="/vendor/bootstrap-4.0.0-beta/dist/css/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="/vendor/datatable/DataTables/datatables.css"/>
+    <link rel='stylesheet' href='/stylesheets/global.css'/>
+    {{#each css}}
+        <link rel="stylesheet" href="/stylesheets/{{this}}">
+    {{/each}}
+</head>
+<body>
+{{{body}}}
+
+<script src="/vendor/jquery/jquery.min.js"></script>
+<script src="/vendor/popper.js-1.12.5/dist/umd/popper.min.js"></script>
+<script src="/vendor/bootstrap-4.0.0-beta/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/vendor/datatable/DataTables/datatables.js"></script>
+{{#each js}}
+    <script src="/javascripts/{{this}}"></script>
+{{/each}}
+</body>
+</html>

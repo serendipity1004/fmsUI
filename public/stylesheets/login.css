@@ -1,0 +1,76 @@
+body {
+    background: url("/images/loginBg.svg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    /*background-repeat: no-repeat;*/
+    width: 1920px;
+    height: 100vh;
+}
+
+#login-container {
+    margin: auto;
+    height: 604px;
+    width:505px;
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+}
+
+.container-flex{
+    height:100%;
+}
+
+#login-logo{
+    width: 296px;
+    height: 87.3px;
+    margin: 96px auto 89px auto;
+}
+
+.form-control.active {
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(237, 237, 237);
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.09),inset 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
+    width: 318px;
+    height: 60px;
+    margin:auto;
+}
+
+.form-control{
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(237, 237, 237);
+    border-radius: 5px;
+    background-color: rgb(249, 249, 249);
+    box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.09),inset 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
+    width: 318px;
+    height: 60px;
+    margin: auto;
+}
+
+.로그인 {
+    font-size: 22px;
+    font-family: "NotoSansCJKkr";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 1.182;
+}
+
+
+#login-btn{
+    border-radius: 5px;
+    background-color: rgb(243, 112, 33);
+    box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+    margin:24px auto auto auto;
+    width: 317px;
+    height: 61px;
+    font-size: 19px;
+    font-family: "NotoSansCJKkr";
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    line-height: 1.06;
+}
