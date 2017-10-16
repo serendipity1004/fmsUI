@@ -63,11 +63,6 @@
     /*margin-top: 25.22px;*/
 /*}*/
 
-#db-font-overwrite{
-    font-family: NotoSansCJKkr !important;
-    font-size: 1em !important;
-}
-
 /*.label{*/
     /*font-size: 18px;*/
     /*font-family: "NotoSansCJKkr";*/
@@ -81,9 +76,13 @@
     /*width:120px;*/
 /*}*/
 
-/*.label.left{*/
-    /*width:80px;*/
-/*}*/
+.label.left{
+    width:120px;
+}
+
+.table-container{
+    height:280px;
+}
 
 /*.dropdown-toggle{*/
     /*border-style: solid;*/

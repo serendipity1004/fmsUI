@@ -1,0 +1,44 @@
+body{
+    overflow:hidden!important;
+}
+
+.table-btn {
+    background-color: rgb(246, 246, 246);
+    width: 150px;
+    height: 58px;
+    margin-right: 10px;
+    font-size: 20px;
+    font-family: "NotoSansCJKkr";
+    color: rgb(40, 40, 40);
+    line-height: 1.12;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+.table-btn.active{
+    background-color: rgb(243, 112, 33);
+    width: 150px;
+    height: 58px;
+    font-size: 20px;
+    font-family: "NotoSansCJKkr";
+    color: rgb(255, 255, 255);
+    line-height: 1.12;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+
+/*.table-striped > tbody > tr:nth-child(even) > td, .table-striped > tbody > tr:nth-child(even) > th {*/
+    /*background-color: rgb(255, 255, 255);*/
+/*}*/
+
+/*#inner-container{}*/
+
+.buttons-row{
+    border-bottom: 2px solid rgb(246, 246, 246);
+    margin-top: 61.26px !important;
+}
+
+.table-container{
+    overflow: hidden;
+    margin-top: 34.23px !important;
+}

@@ -17,3 +17,434 @@ a {
   font-weight: bold;
   src: url("/fonts/NotoSansCJKkr-hinted/NotoSansCJKkr-Bold.otf") format("opentype");
 }
+
+body{
+  background-color: #F6F6F6;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 1920px;
+  height: 100vh;
+  visibility: hidden;
+}
+
+.nav-category.active{
+  font-size: 29px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(243, 112, 33);
+  font-weight: bold;
+  line-height: 0.9;
+}
+
+.nav-category{
+  font-size: 29px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(175, 175, 175);
+  font-weight: bold;
+  line-height: 0.9;
+}
+
+.nav-bracket img {
+  height: 29px;
+  margin: 0 45px 0 45px;
+}
+
+#contents-container{
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.2);
+  width: 1317px;
+  height: 750px;
+  margin:55px auto auto auto;
+}
+
+.button-row{
+  width:1317px;
+  margin:auto;
+}
+
+#inner-container {
+  height: 645px;
+  width: 1164px;
+  margin: 69px auto auto auto;
+}
+
+.title{
+  font-size: 23px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(40, 40, 40);
+  line-height: 1.029;
+  padding-bottom: 25.22px;
+  border-bottom: 1.8px solid rgb(40, 40, 40);
+}
+
+.main-selections {
+  margin-top: 25.22px;
+}
+
+.label{
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  font-weight: bold;
+  line-height: 1.17;
+  margin: auto 44.14px auto 0;
+}
+
+#db-font-overwrite{
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  /*font-weight: bold;*/
+  line-height: 1.17;
+}
+
+.label.right{
+  width:120px;
+}
+
+.label.left{
+  width:80px;
+}
+
+.dropdown-toggle{
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(237, 237, 237);
+  border-radius: 5px;
+  background-color: rgb(249, 249, 249);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.09);
+  width: 261px;
+  height: 50px;
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  text-align: left;
+  /*font-weight: bold;*/
+  line-height: 1.17;
+  margin-right: 84.66px;
+}
+
+.main-input{
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(237, 237, 237);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.09),inset 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
+  width: 261px !important;
+  height: 50px;
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  text-align: left;
+  /*font-weight: bold;*/
+  line-height: 1.17;
+  margin-right: 84.66px;
+}
+
+
+.dropdown-item{
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  text-align: left;
+  line-height: 1.17;
+}
+
+.dropdown-toggle::after{
+  content: none;
+}
+
+#screenshot {
+  /*-webkit-transform: rotate(270deg);*/
+  /*-moz-transform: rotate(270deg);*/
+  /*-ms-transform: rotate(270deg);*/
+  /*-o-transform: rotate(270deg);*/
+  /*transform: rotate(270deg);*/
+  width: 500px;
+  height:300px;
+  margin:0 auto 0 auto;
+  /*height:500px;*/
+}
+
+.arrow{
+  float: right;
+  margin: 6px auto auto auto;
+}
+
+.dropdown-menu {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(213, 213, 213);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.25);
+  width: 261px;
+}
+
+.row.selection{
+  margin-top: 5.4px;
+}
+
+#previous-btn{
+  border-radius: 4.5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.25px;
+  font-size: 19.8px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(55, 55, 55);
+  font-weight: bold;
+  line-height: 1.06;
+}
+
+#next-btn {
+  border-radius: 4.5px;
+  background-color: rgb(243, 112, 33);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.25px;
+  font-size: 19.8px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.06;
+  margin-left: 18px;
+}
+
+.table-striped > tbody > tr:nth-child(even):hover{
+  background-color: rgb(255, 255, 255);;
+}
+
+.button-row{
+  margin-top: 31.53px;
+}
+
+.bottom-btn-col{
+  display: flex;
+  justify-content: center;
+}
+
+#booster-run-btn{
+  border-radius: 4.5px;
+  background-color: rgb(45, 57, 118);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  height: 52.25px;
+  font-size: 19.8px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(255, 255, 255);
+  line-height: 1.06;
+  margin-left: 18px;
+  float: right;
+}
+
+.btn:focus{
+  /*outline:none !important;*/
+}
+
+.table-container {
+  margin-top: 35px;
+  height: 318.9px;
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+tbody tr:hover{
+  box-shadow: 2px 2px 4px 2px rgba(0, 0, 0, 0.2);
+}
+
+.modal {
+  text-align: center;
+  padding: 0!important;
+}
+
+.modal:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: -4px;
+}
+
+.modal-dialog {
+  display: inline-block;
+  text-align: left;
+  vertical-align: middle;
+}
+
+.modal-content {
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  width: 612.6px;
+  height: 360.3px;
+  /*height:700px;*/
+}
+
+.modal-close-btn{
+  text-align: right;
+  position: absolute;
+  left: 530px;
+  top: -8px;
+}
+
+.modal-close-btn img {
+  margin-right: 27px;
+}
+
+.modal-top-section{
+  margin-top: 27px;
+}
+
+.modal-title-container{
+  margin:auto;
+  font-size: 25.22px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(40, 40, 40);
+  line-height: 1.03;
+  padding-bottom: 23px;
+  border-bottom: 2px solid rgb(40, 40, 40);
+}
+
+.modal-container{
+  margin:0 auto 0 auto;
+  width:504px;
+  /*height: 1000px;*/
+}
+
+#modal-input{
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgb(237, 237, 237);
+  border-radius: 5px;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.09),inset 0px 2px 3px 0px rgba(0, 0, 0, 0.14);
+  width: 261px;
+  height: 50.45px;
+}
+
+.modal-input-form{
+  margin-top: 49.5px;
+}
+
+#modal-selected{
+  margin: auto 0 auto 0;
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(52, 52, 52);
+  font-weight: bold;
+  line-height: 1.17;
+  width:120px;
+}
+
+#modal-cancel-btn{
+  border-radius: 5px;
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.2px;
+  font-size: 19px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(55, 55, 55);
+  font-weight: bold;
+  line-height: 1.06;
+}
+
+#modal-confirm-btn{
+  border-radius: 5px;
+  background-color: rgb(243, 112, 33);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.2px;
+  margin-left: 18px;
+  font-size: 19px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.06;
+}
+
+.modal-btn-row{
+  margin-top: 79px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/*Radio Button*/
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label
+{
+  position: relative;
+  padding-left: 28px;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+  margin-top: 5px;
+}
+[type="radio"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+  margin-top: 5px;
+}
+[type="radio"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #F87DA9;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  margin-top: 5px;
+}
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+}
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+th{
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(255, 255, 255);
+}
+
+td{
+  font-size: 18px;
+  font-family: "NotoSansCJKkr";
+}
+
+.result-table{
+  margin-top: 77.4px;
+}
+
+
+.orange-span{
+  color: #f58d4d;
+}
+

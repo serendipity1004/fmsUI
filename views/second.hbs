@@ -1,6 +1,6 @@
 <div class="container-flex">
     <div class="row justify-content-center">
-        <div class="nav-category first active">
+        <div class="nav-category first">
             01 상품컨셉
         </div>
         <div class="nav-bracket">
@@ -12,7 +12,7 @@
         <div class="nav-bracket">
             <img src="/images/bracket.svg">
         </div>
-        <div class="nav-category third">
+        <div class="nav-category third active">
             03 상품설계
         </div>
     </div>
@@ -28,12 +28,9 @@
                             <div class="input-group">
                                 <div class="label left">상품 종류</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle session-one" type="button"
-                                            id="dropdownMenuButton"
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[0]}}
-                                        {{/if}}
+                                        {{template.[0]}}
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -51,12 +48,10 @@
                                 </div>
                                 <div class="label right">부가서비스 종류</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle session-two" type="button"
-                                            id="dropdownMenuButton"
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[1]}}
-                                        {{/if}}
+                                        {{template.[1]}}
+
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -78,105 +73,83 @@
                             <div class="input-group sang-poom-nae-yong-parent">
                                 <div class="label left">상품 내용</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle sang-poom-nae-yong session-three we-hum-ryul-dropdown"
-                                            type="button"
+                                    <button class="btn dropdown-toggle sang-poom-nae-yong" type="button"
                                             id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[2]}}
-                                        {{/if}}
+                                        {{template.[2]}}
+
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <!--<a class="dropdown-item not-selected">-->
-                                            <!--<input class="not-selected" type="radio" name="db">-->
-                                            <!--<div class="gap" style="margin-right: 20px;"></div>-->
-                                            <!--<label for="db" id="we-hum-ryul-row-trigger" class="no-h">-->
-                                                <!--<h5 class="no-hide" id="db-font-overwrite">위험률DB선택</h5>-->
-                                            <!--</label>-->
-                                            <!--<a class="dropdown-item not-selected" id="we-hum-ryul-row-trigger" href="#"><h5 id="db-font-overwrite">위험률DB선택</h5></a>-->
-
-                                        <!--</a>-->
-                                        <a class="dropdown-item no-hide not-selected" id="we-hum-ryul-row-trigger" href="#">
-                                            <input class="radio db-selection" type="radio" name="db">
-                                            <label for="db" class="no-hide">
-                                                <h5 class="no-hide">위험률DB선택</h5>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="death">
+                                            <label for="death" class="no-hide">
+                                                <h5 class="no-hide">사망</h5>
                                             </label>
                                         </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="death">
-                                                <label for="death" class="no-hide">
-                                                    <h5 class="no-hide">사망</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="cancer">
-                                                <label for="ip-won" class="no-hide">
-                                                    <h5 class="no-hide">암</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="hemorrhage">
-                                                <label for="hemorrhage" class="no-hide">
-                                                    <h5 class="no-hide">뇌출혈</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" hre="#">
-                                                <input class="radio" type="radio" name="gyung-saek">
-                                                <label for="gyung-saek" class="no-hide">
-                                                    <h5 class="no-hide">급성 심근경색</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="surgery">
-                                                <label for="surgery" class="no-hide">
-                                                    <h5 class="no-hide">수술</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="hospitalization">
-                                                <label for="hospitalization" class="no-hide">
-                                                    <h5 class="no-hide">입원</h5>
-                                                </label>
-                                            </a>
-                                            <!--<a class="dropdown-item no-hide" href="#">-->
-                                                <!--<input class="radio" type="radio" name="mountain-biking">-->
-                                                <!--<label for="mountain-biking" class="no-hide">-->
-                                                    <!--<h5 class="no-hide">산악자전거 상해</h5>-->
-                                                <!--</label>-->
-                                            <!--</a>-->
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="bone">
-                                                <label for="bone" class="no-hide">
-                                                    <h5 class="no-hide">재해 골절</h5>
-                                                </label>
-                                            </a>
-                                            <a class="dropdown-item no-hide" href="#">
-                                                <input class="radio" type="radio" name="jaehae-surgery">
-                                                <label for="jaehae-surgery" class="no-hide">
-                                                    <h5 class="no-hide">재해수술</h5>
-                                                </label>
-                                            </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="cancer">
+                                            <label for="ip-won" class="no-hide">
+                                                <h5 class="no-hide">암</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="hemorrhage">
+                                            <label for="hemorrhage" class="no-hide">
+                                                <h5 class="no-hide">뇌출혈</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" hre="#">
+                                            <input class="radio" type="radio" name="gyung-saek">
+                                            <label for="gyung-saek" class="no-hide">
+                                                <h5 class="no-hide">급성 심근경색</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="surgery">
+                                            <label for="surgery" class="no-hide">
+                                                <h5 class="no-hide">수술</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="hospitalization">
+                                            <label for="hospitalization" class="no-hide">
+                                                <h5 class="no-hide">입원</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="mountain-biking">
+                                            <label for="mountain-biking" class="no-hide">
+                                                <h5 class="no-hide">산악자전거 상해</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="bone">
+                                            <label for="bone" class="no-hide">
+                                                <h5 class="no-hide">재해 골절</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="jaehae-surgery">
+                                            <label for="jaehae-surgery" class="no-hide">
+                                                <h5 class="no-hide">재해수술</h5>
+                                            </label>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="label right">부가서비스 내용</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle session-four" type="button"
-                                            id="boo-ga-service-dropdown"
+                                    <button class="btn dropdown-toggle" type="button" id="boo-ga-service-dropdown"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[3]}}
-                                        {{/if}}
+                                        {{template.[3]}}
+
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#"><h5>체증형(51세형)</h5></a>
                                         <a class="dropdown-item" href="#"><h5>효도자금형(3년 거치, <br/> 5년 지급)</h5></a>
-                                        <a class="dropdown-item" id="booga-service-row-trigger" href="#"><h5>
-                                            서비스DB선택</h5>
+                                        <a class="dropdown-item" id="booga-service-row-trigger" href="#"><h5>DB선택</h5>
                                         </a>
-                                        <a class="dropdown-item" href="#"><h5>선택안함</h5></a>
-
                                     </div>
                                 </div>
                             </div>
@@ -185,12 +158,11 @@
                             <div class="input-group">
                                 <div class="label left">보험 기간</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle session-five" type="button"
-                                            id="dropdownMenuButton"
+                                    <!--<input type="text" class="form-control fomr-control-lg main-input" value="종신">-->
+
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[4]}}
-                                        {{/if}}
+                                            종신
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -200,156 +172,90 @@
                                 </div>
                                 <div class="label right">납입 기간</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle session-six" type="button"
-                                            id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[5]}}
-                                        {{/if}}
-                                        <img src="/images/arrow.svg" class="arrow"/>
-                                    </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>일시</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>1년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>2년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>3년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>10년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>20년</h5></a>
-                                    </div>
+                                    <input type="text" class="form-control fomr-control-lg main-input"
+                                           value="0, 5, 7, 10, 15, 20, 22">
+
+                                    <!--<button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"-->
+                                    <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+
+                                    <!--<img src="/images/arrow.svg" class="arrow"/>-->
+                                    <!--</button>-->
+                                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                                    <!--<a class="dropdown-item" href="#"><h5>일시</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>1년</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>2년</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>3년</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>10년</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>20년</h5></a>-->
+                                    <!--</div>-->
                                 </div>
                             </div>
                         </div>
                         <div class="row selection">
                             <div class="input-group">
-                                <div class="label left">예정 이율</div>
+                                <div class="label left">가입 성별</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle yeajung-eyul session-seven" type="button"
+                                    <input type="text" class="form-control fomr-control-lg main-input" value="남자, 여자">
+
+                                    <!--<button class="btn dropdown-toggle" type="button"-->
+                                    <!--id="dropdownMenuButton"-->
+                                    <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+
+                                    <!--<img src="/images/arrow.svg" class="arrow"/>-->
+                                    <!--</button>-->
+                                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                                    <!--<a class="dropdown-item" href="#"><h5>남자</h5></a>-->
+                                    <!--<a class="dropdown-item" href="#"><h5>여자</h5></a>-->
+                                    <!--</div>-->
+                                </div>
+                                <div class="label right">가입 연령</div>
+                                <div class="dropdown">
+                                    <input type="text" class="form-control fomr-control-lg main-input" value="15 to 70">
+
+                                    <!--<button class="btn dropdown-toggle saupbe-input" type="button"-->
+                                    <!--id="dropdownMenuButton"-->
+                                    <!--data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+
+                                    <!--<img src="/images/arrow.svg" class="arrow"/>-->
+                                    <!--</button>-->
+                                    <!--<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">-->
+                                    <!--</div>-->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row selection">
+                            <div class="input-group">
+                                <div class="label left">건강체 포함</div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button"
                                             id="dropdownMenuButton"
-                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[6]}}
-                                        {{/if}}
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-size: 16px !important;">
+                                        YES
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>사용자 입력</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>종신보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>건강보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>정기보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>상해보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>실손보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>저축보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>연금보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>교육보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>기부보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>임의보험</h5></a>
-                                        <input type="hidden" value="예정 이율"/>
+                                        <a class="dropdown-item" href="#">Yes</a>
+                                        <a class="dropdown-item" href="#">No</a>
                                     </div>
                                 </div>
-                                <div class="label right">사업비</div>
+                                <div class="label right">판매 성향</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle saupbe-input session-eight" type="button"
+                                    <button class="btn dropdown-toggle saupbe-input" type="button"
                                             id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {{#if renderAll}}
-                                            {{templateFront.[7]}}
-                                        {{/if}}
+                                        외부지정
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>사용자 입력</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>종신보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>건강보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>정기보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>상해보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>실손보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>저축보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>연금보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>교육보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>기부보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>임의보험</h5></a>
-                                        <input type="hidden" value="사업비">
+                                        <a class="dropdown-item" href="#">외부지정</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="progress" style="display: none; margin: 100px 0 0 25px;">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger"
-                         role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"
-                         style="width: 0"></div>
-                </div>
                 <div class="row table-row">
                     <div class="table-container">
-                        <table class="table table-bordered db-table table-striped we-hum-ryul-table"
-                               style="display: none;">
-                            <thead class="thead-inverse">
-                            <tr>
-                                <th>컨텐츠</th>
-                                <th>부가위험률</th>
-                                <th>사용여부</th>
-                                <th>경험여부</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td>스포츠</td>
-                                <td>산악자전거상해율</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td>여행</td>
-                                <td>핸드폰분실</td>
-                                <td>사용중</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>핸드폰파손</td>
-                                <td>사용중</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>수화물분실</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>말라리아발생</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>여권도난율</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td>독서</td>
-                                <td>안구건조증</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>안경교체</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            <tr>
-                                <td></td>
-                                <td>도서파손</td>
-                                <td>예비</td>
-                                <td>사회통계</td>
-                            </tr>
-                            </tbody>
-                        </table>
-
                         <table class="table table-bordered db-table table-striped booga-service-table">
                             <thead class="thead-inverse">
                             <tr>
@@ -512,15 +418,15 @@
                             <tbody>
                             <tr>
                                 <td>보험료</td>
-                                <td>3,200</td>
-                                <td>2,800</td>
-                                <td><span class="orange-span">3,000</span></td>
+                                <td>160,300</td>
+                                <td>157,500</td>
+                                <td><span class="orange-span">158,900</span></td>
                             </tr>
                             <tr>
                                 <td>손익률</td>
-                                <td>22.4%</td>
-                                <td>24.4%</td>
-                                <td><span class="orange-span">23.4%</span></td>
+                                <td>7.10%</td>
+                                <td>7.16%</td>
+                                <td><span class="orange-span">7.13%</span></td>
                             </tr>
                             </tbody>
                         </table>
@@ -696,9 +602,11 @@
 
 
                 </div>
+
             </div>
         </div>
     </div>
+
     <div class="row justify-content-center button-row">
         <div class="col-4"></div>
         <div class="col-4 bottom-btn-col">
@@ -716,9 +624,6 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-container">
-                <div class="row">
-                    <img id="screenshot" src="/images/screenshot.jpg" style="display: none;"/>
-                </div>
                 <div class="row">
                     <div class="col-12 modal-top-section">
                         <div class="modal-title-container">
@@ -749,9 +654,3 @@
         </div>
     </div>
 </div>
-
-<script>
-    let _renderAll = JSON.parse(decodeURIComponent('{{{renderAll}}}'));
-    let _template = '{{{template}}}';
-    let _products = '{{{products}}}';
-</script>
