@@ -392,56 +392,114 @@ $('#booster-run-btn').click(function (e) {
                     $('.jong-shin').show();
                 }else if(data[0] === '건강보험'){
 
-                    switch(products){
-                        case ['암', '뇌출혈', '급성 심근경색'].sort().toString():
-                            $('.health-1').show();
+                    let service = $('.session-two').text().trim();
 
-                            break;
-                        case ['암'].toString():
-                            $('.health-2').show();
+                    console.log(service)
+                    if(service !== '중도자금'){
+                        switch(products){
+                            case ['암', '뇌출혈', '급성 심근경색'].sort().toString():
+                                $('.joongdo-1').show();
 
-                            break;
+                                break;
+                            case ['암'].toString():
+                                $('.joongdo-2').show();
 
-                        case ['뇌출혈'].toString():
-                            $('.health-3').show();
+                                break;
 
-                            break;
+                            case ['뇌출혈'].toString():
+                                $('.joongdo-3').show();
 
-                        case ['급성 심근경색'].sort().toString():
-                            $('.health-4').show();
+                                break;
 
-                            break;
+                            case ['급성 심근경색'].sort().toString():
+                                $('.joongdo-4').show();
 
-                        case ['뇌출혈', '급성 심근경색'].sort().toString():
-                            $('.health-5').show();
+                                break;
 
-                            break;
+                            case ['뇌출혈', '급성 심근경색'].sort().toString():
+                                $('.joongdo-5').show();
 
-                        case ['암', '뇌출혈'].sort().toString():
-                            $('.health-6').show();
+                                break;
 
-                            break;
+                            case ['암', '뇌출혈'].sort().toString():
+                                $('.joongdo-6').show();
 
-                        case ['암', '급성 심근경색'].sort().toString():
-                            $('.health-7').show();
+                                break;
 
-                            break;
+                            case ['암', '급성 심근경색'].sort().toString():
+                                $('.joongdo-7').show();
 
-                        case ['암', '뇌출혈', '급성 심근경색', '입원'].sort().toString():
-                            $('.health-8').show();
+                                break;
 
-                            break;
+                            case ['암', '뇌출혈', '급성 심근경색', '입원'].sort().toString():
+                                $('.joongdo-8').show();
 
-                        case ['암', '뇌출혈', '급성 심근경색', '수술'].sort().toString():
-                            $('.health-9').show();
+                                break;
 
-                            break;
+                            case ['암', '뇌출혈', '급성 심근경색', '수술'].sort().toString():
+                                $('.joongdo-9').show();
 
-                        case ['암', '뇌출혈', '급성 심근경색', '입원', '수술'].sort().toString():
-                            $('.health-10').show();
+                                break;
 
-                            break;
+                            case ['암', '뇌출혈', '급성 심근경색', '입원', '수술'].sort().toString():
+                                $('.joongdo-10').show();
+
+                                break;
+                        }
+
+                    }else{
+                        switch(products){
+                            case ['암', '뇌출혈', '급성 심근경색'].sort().toString():
+                                $('.health-1').show();
+
+                                break;
+                            case ['암'].toString():
+                                $('.health-2').show();
+
+                                break;
+
+                            case ['뇌출혈'].toString():
+                                $('.health-3').show();
+
+                                break;
+
+                            case ['급성 심근경색'].sort().toString():
+                                $('.health-4').show();
+
+                                break;
+
+                            case ['뇌출혈', '급성 심근경색'].sort().toString():
+                                $('.health-5').show();
+
+                                break;
+
+                            case ['암', '뇌출혈'].sort().toString():
+                                $('.health-6').show();
+
+                                break;
+
+                            case ['암', '급성 심근경색'].sort().toString():
+                                $('.health-7').show();
+
+                                break;
+
+                            case ['암', '뇌출혈', '급성 심근경색', '입원'].sort().toString():
+                                $('.health-8').show();
+
+                                break;
+
+                            case ['암', '뇌출혈', '급성 심근경색', '수술'].sort().toString():
+                                $('.health-9').show();
+
+                                break;
+
+                            case ['암', '뇌출혈', '급성 심근경색', '입원', '수술'].sort().toString():
+                                $('.health-10').show();
+
+                                break;
+                        }
                     }
+
                 }
 
                 if(dbTrigger === '산악자전거상해율'){
@@ -464,10 +522,38 @@ $('#booster-run-btn').click(function (e) {
 $('#we-hum-ryul-row-trigger').click(function (e) {
     e.preventDefault();
 
-    if($('.db-selection').is(':checked')){
+    if($('.db-selection').is(':checked')) {
+        $('table').each(function (index, item) {
+            $(item).hide();
+        });
+
         $('.we-hum-ryul-table').show();
 
     }else{
         $('.we-hum-ryul-table').hide();
     }
+});
+
+$('.arb-value-category').click(function (e) {
+    e.preventDefault();
+
+    $('#arb-value-category-modal').modal('toggle');
+});
+
+$('#modal-cancel-btn-arb').click(function (e) {
+    e.preventDefault();
+
+    $('#arb-value-category-modal').modal('toggle');
+});
+
+$('#modal-confirm-btn-arb').click(function (e) {
+    e.preventDefault();
+
+    let text = $('#modal-input-2').val();
+
+    $('.session-two').text(text);
+    $(`.session-two`).text(text).append('<img src="/images/arrow.svg" class="arrow"/>');
+
+    $('#arb-value-category-modal').modal('toggle');
+
 });

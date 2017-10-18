@@ -240,14 +240,14 @@
                                 </div>
                                 <div class="label right">판매 성향</div>
                                 <div class="dropdown">
-                                    <button class="btn dropdown-toggle saupbe-input" type="button"
+                                    <button class="btn dropdown-toggle saupbe-input outside-select-dropdown" type="button"
                                             id="dropdownMenuButton"
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         외부지정
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#">외부지정</a>
+                                        <a class="dropdown-item outside-select-trigger" href="#">외부지정</a>
                                     </div>
                                 </div>
                             </div>
@@ -256,6 +256,53 @@
                 </div>
                 <div class="row table-row">
                     <div class="table-container">
+                        <table class="table table-bordered db-table table-striped outside-select" style="display: none;">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>성별</th>
+                                <th>보기</th>
+                                <th>납기</th>
+                                <th>연령</th>
+                                <th>가입금액</th>
+                                <th>비중</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>남</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>35</td>
+                                <td>1,000</td>
+                                <td>52</td>
+                            </tr>
+                            <tr>
+                                <td>남</td>
+                                <td>20</td>
+                                <td>20</td>
+                                <td>30</td>
+                                <td>2,000</td>
+                                <td>18</td>
+                            </tr>
+                            <tr>
+                                <td>여</td>
+                                <td>10</td>
+                                <td>10</td>
+                                <td>25</td>
+                                <td>1,000</td>
+                                <td>30</td>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
                         <table class="table table-bordered db-table table-striped booga-service-table">
                             <thead class="thead-inverse">
                             <tr>

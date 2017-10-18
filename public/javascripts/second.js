@@ -64,6 +64,36 @@ $('body').on('click', '.booga-service-table tr', function (e) {
     $('.booga-service-table').hide();
 });
 
+$('body').on('click', '.outside-select tr', function (e) {
+    e.preventDefault();
+
+    console.log($(this).find('td'))
+
+    let text = $(this).find('td:nth-child(5)').text();
+
+    $('.outside-select-dropdown').text(text);
+    $('.outside-select-dropdown').append('<img src="/images/arrow.svg" class="arrow"/>');
+
+    $('.outside-select').hide();
+});
+
+$('.outside-select-trigger').click(function (e) {
+    e.preventDefault();
+
+    let visibility = $('.outside-select').is(':visible');
+
+    if(visibility){
+        $('.outside-select').hide();
+    }else{
+
+        $('table').each(function (index, item) {
+            $(item).hide();
+        });
+        $('.outside-select').show();
+
+    }
+});
+
 $('#next-btn').click(function (e) {
     e.preventDefault();
 

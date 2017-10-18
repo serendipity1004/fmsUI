@@ -353,7 +353,34 @@ tbody tr:hover{
   line-height: 1.06;
 }
 
+#modal-cancel-btn-arb{
+  border-radius: 5px;
+  background-color: rgb(246, 246, 246);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.2px;
+  font-size: 19px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(55, 55, 55);
+  font-weight: bold;
+  line-height: 1.06;
+}
+
 #modal-confirm-btn{
+  border-radius: 5px;
+  background-color: rgb(243, 112, 33);
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
+  width: 117px;
+  height: 52.2px;
+  margin-left: 18px;
+  font-size: 19px;
+  font-family: "NotoSansCJKkr";
+  color: rgb(255, 255, 255);
+  font-weight: bold;
+  line-height: 1.06;
+}
+
+#modal-confirm-btn-arb{
   border-radius: 5px;
   background-color: rgb(243, 112, 33);
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2);
