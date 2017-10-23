@@ -78,7 +78,7 @@ $(document).ready(function () {
 
         respondToSliders();
 
-        $('#table-title-eyul').text(Math.floor(values[handle]));
+        $('#table-title-saupbe').text(Math.floor(values[handle]));
     });
 
     saupbeFormat.addEventListener('change', function () {
@@ -103,7 +103,7 @@ $(document).ready(function () {
 
         respondToSliders();
 
-        $('#table-title-saupbe').text(Math.floor(values[handle]));
+        $('#table-title-eyul').text(Math.floor(values[handle]));
 
     });
 
