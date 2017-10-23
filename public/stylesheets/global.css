@@ -1,6 +1,7 @@
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  overflow: hidden;
 }
 
 a {
@@ -247,7 +248,7 @@ body{
 
 .table-container {
   margin-top: 35px;
-  height: 318.9px;
+  height: 280px;
   width: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -467,11 +468,54 @@ td{
 }
 
 .result-table{
-  margin-top: 77.4px;
+  margin-top: 0;
 }
 
+.table-title{
+  margin-top: 30px !important;
+}
 
 .orange-span{
   color: #f58d4d;
 }
 
+.slider-max-text{
+  font-weight: bold;
+  font-size: 20px;
+  margin-left: 10px !important;
+  color: #666;
+}
+
+.slider-min-text {
+  font-weight: bold;
+  font-size: 20px;
+  margin-right: 10px !important;
+  color: #666;
+}
+
+#eyul-slider{
+  width:190px;
+}
+
+#sa-up-be-slider{
+  width:190px;
+}
+
+.slider-value {
+  margin: auto 0 auto 10px !important;
+  height: 30px;
+  width: 35px !important;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+}
+
+.slider-unit {
+  font-size: 17px !important;
+  font-weight: bold;
+  margin-left: 5px !important;
+}
+
+.table-title{
+  text-align: center;
+}

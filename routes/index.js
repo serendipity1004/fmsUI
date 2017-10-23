@@ -70,4 +70,12 @@ router.post('/second', (req, res) => {
     res.json({done: true})
 });
 
+router.get('/pre-first', (req, res) => {
+
+    res.render('pre-first', {
+        js:['pre-first.js'],
+        css:['pre-first.css']
+    })
+});
+
 module.exports = router;
