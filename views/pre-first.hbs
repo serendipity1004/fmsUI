@@ -19,6 +19,136 @@
     <div class="row">
         <div id="contents-container">
             <div id="inner-container">
+                <div class="title">
+                    보장받고자 하는 급부 또는 부가 서비스의 종류를 확인하세요.
+                </div>
+                <div class="col-12">
+                    <div class="main-selections">
+                        <div class="row">
+                            <div class="input-group" style="padding-bottom: 10px; border-bottom: 1px solid #E0E0E0">
+                                <div class="label left">상품의 종류</div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle session-one" type="button"
+                                            id="category-input"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <img src="/images/arrow.svg" class="arrow"/>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#"><h5>가족사랑</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>건강관리</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>부자되기</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>상속증여</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>레져생활</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>기부봉사</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>임의설계</h5></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row selection">
+                            <div class="input-group sang-poom-nae-yong-parent" style="margin-top: 5px;">
+                                <div class="label left">위험률 종류</div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle sang-poom-nae-yong session-three we-hum-ryul-dropdown"
+                                            type="button"
+                                            id="risk-input"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+                                        <img src="/images/arrow.svg" class="arrow"/>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <!--<a class="dropdown-item not-selected">-->
+                                        <!--<input class="not-selected" type="radio" name="db">-->
+                                        <!--<div class="gap" style="margin-right: 20px;"></div>-->
+                                        <!--<label for="db" id="we-hum-ryul-row-trigger" class="no-h">-->
+                                        <!--<h5 class="no-hide" id="db-font-overwrite">위험률DB선택</h5>-->
+                                        <!--</label>-->
+                                        <!--<a class="dropdown-item not-selected" id="we-hum-ryul-row-trigger" href="#"><h5 id="db-font-overwrite">위험률DB선택</h5></a>-->
+
+                                        <!--</a>-->
+                                        <a class="dropdown-item no-hide not-selected" id="we-hum-ryul-row-trigger"
+                                           href="#">
+                                            <input class="radio db-selection" type="radio" name="db">
+                                            <label for="db" class="no-hide">
+                                                <h5 class="no-hide">스포츠</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="death">
+                                            <label for="death" class="no-hide">
+                                                <h5 class="no-hide">여행</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="cancer">
+                                            <label for="ip-won" class="no-hide">
+                                                <h5 class="no-hide">익스트림</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="hemorrhage">
+                                            <label for="hemorrhage" class="no-hide">
+                                                <h5 class="no-hide">취미생활</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" hre="#">
+                                            <input class="radio" type="radio" name="gyung-saek">
+                                            <label for="gyung-saek" class="no-hide">
+                                                <h5 class="no-hide">건강관리</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="surgery">
+                                            <label for="surgery" class="no-hide">
+                                                <h5 class="no-hide">생활질병</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="hospitalization">
+                                            <label for="hospitalization" class="no-hide">
+                                                <h5 class="no-hide">육아</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="bone">
+                                            <label for="bone" class="no-hide">
+                                                <h5 class="no-hide">화재</h5>
+                                            </label>
+                                        </a>
+                                        <a class="dropdown-item no-hide" href="#">
+                                            <input class="radio" type="radio" name="bone">
+                                            <label for="bone" class="no-hide">
+                                                <h5 class="no-hide">선택안함</h5>
+                                            </label>
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="label right">서비스 종류</div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle session-four" type="button"
+                                            id="boo-ga-service-dropdown"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <img src="/images/arrow.svg" class="arrow"/>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#"><h5>적립</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>중도자금</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>할인</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>제휴</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>보증</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>주모</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>드림플러스</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>브랜드/컨텐츠</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>선택안함</h5></a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
 
             </div>
         </div>

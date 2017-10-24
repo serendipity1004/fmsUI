@@ -1,12 +1,12 @@
 <div class="container-flex">
     <div class="row justify-content-center">
-        <div class="nav-category first active">
+        <div class="nav-category first">
             01 상품컨셉
         </div>
         <div class="nav-bracket">
             <img src="/images/bracket.svg">
         </div>
-        <div class="nav-category second">
+        <div class="nav-category second active">
             02 샘플설계
         </div>
         <div class="nav-bracket">
@@ -34,19 +34,19 @@
                                         {{#if renderAll}}
                                             {{templateFront.[0]}}
                                         {{/if}}
+                                        {{#if prevData}}
+                                            {{category}}
+                                        {{/if}}
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>종신보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>건강보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>정기보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>상해보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>실손보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>저축보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>연금보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>교육보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>기부보험</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>임의보험</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>가족사랑</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>건강관리</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>부자되기</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>상속증여</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>레져생활</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>기부봉사</h5></a>
+                                        <a class="dropdown-item" href="#"><h5>임의설계</h5></a>
                                     </div>
                                 </div>
                                 <div class="label right">서비스 종류</div>
@@ -56,6 +56,9 @@
                                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         {{#if renderAll}}
                                             {{templateFront.[1]}}
+                                        {{/if}}
+                                        {{#if prevData}}
+                                            {{service}}
                                         {{/if}}
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
@@ -85,6 +88,9 @@
                                         {{#if renderAll}}
                                             {{templateFront.[2]}}
                                         {{/if}}
+                                        <!--{{#if prevData}}-->
+                                            <!--{{risk}}-->
+                                        <!--{{/if}}-->
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -168,6 +174,7 @@
                                         {{#if renderAll}}
                                             {{templateFront.[3]}}
                                         {{/if}}
+
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -226,7 +233,7 @@
                         </div>
                         <div class="row selection">
                             <div class="input-group">
-                                <div class="label left">예정 이율</div>
+                                <div class="label left">적용 이율</div>
                                 <div class="dropdown">
                                     <button class="btn dropdown-toggle yeajung-eyul session-seven" type="button"
                                             id="dropdownMenuButton"
@@ -251,7 +258,7 @@
                                         <input type="hidden" value="예정 이율"/>
                                     </div>
                                 </div>
-                                <div class="label right">민감도</div>
+                                <div class="label right variance-title">이율 변동</div>
                                 <div class="slider-min-text" style="margin: auto 0 auto 0;">-75</div>
                                 <div class="noUiSlider" id="eyul-slider" style="margin: auto 0 auto 0;">
 
@@ -290,7 +297,7 @@
                                         <input type="hidden" value="사업비">
                                     </div>
                                 </div>
-                                <div class="label right">민감도</div>
+                                <div class="label right variance-title">사업비 변동</div>
                                 <div class="slider-min-text" style="margin: auto 0 auto 0;">-30</div>
                                 <div id="sa-up-be-slider" style="margin: auto 0 auto 0;">
 
@@ -310,15 +317,18 @@
                 </div>
                 <div class="row table-row">
                     <div class="col-6">
-                        <div class="table-title"
-                             style="margin: auto; font-size: 35px; font-weight: bold; display: none;">
-                            기본설계
+                        <div class="row">
+                            <div class="table-title"
+                                 style="margin: auto 0 auto 0; display: none;">
+                                보험료 및 손익률
+                            </div>
                         </div>
+
                     </div>
                     <div class="col-6">
                         <div class="table-title"
-                             style="margin: auto; font-size: 35px; font-weight: bold; display: none;">
-                            민감도(이율 <span id="table-title-eyul"></span>bp, 사업비 <span id="table-title-saupbe"></span>%)
+                             style="margin: auto; display: none;">
+                            보험료 및 손익률 변동
                         </div>
                     </div>
                     <div class="table-container">
@@ -470,7 +480,6 @@
                         </table>
 
                         <div class="result-table-row row">
-                            <!--<h2 class="jong-shin table-subtitle">기본설계</h2>-->
                             <div class="col-6">
                                 <table class="table table-bordered table-hover result-table jong-shin static"
                                        style="display: none;">
@@ -522,34 +531,6 @@
                                         <td class="sensitivity-change male">8.34%</td>
                                         <td class="sensitivity-change female">9.33%</td>
                                         <td class="profit-percent-average"><span class="orange-span">8.84%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table jong-shin other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -607,34 +588,6 @@
                                         <td class="sensitivity-change male">7.23%</td>
                                         <td class="sensitivity-change female">8.11%</td>
                                         <td class="profit-percent-average"><span class="orange-span">7.67%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-1 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -698,34 +651,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-2 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                         <div class="result-table-row row">
 
@@ -780,34 +705,6 @@
                                         <td class="sensitivity-change male">7.44%</td>
                                         <td class="sensitivity-change female">7.93%</td>
                                         <td class="profit-percent-average"><span class="orange-span">7.69%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-3 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -873,35 +770,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-4 other-company-price"
-                                       style="display: none;">
-
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
 
                         </div>
                         <div class="result-table-row row">
@@ -937,34 +805,6 @@
                             <div class="col-6">
 
                                 <table class="table table-bordered table-hover result-table health-5 dynamic"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th></th>
-                                        <th>남자</th>
-                                        <th>여자</th>
-                                        <th>합계</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>보험료</td>
-                                        <td class="cost male">181,600</td>
-                                        <td class="cost female">169,800</td>
-                                        <td class="cost-average"><span class="orange-span">175,700</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>손익률</td>
-                                        <td class="sensitivity-change male">6.58%</td>
-                                        <td class="sensitivity-change female">7.13%</td>
-                                        <td class="profit-percent-average"><span class="orange-span">6.86%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-5 other-company-table"
                                        style="display: none;">
                                     <thead class="thead-inverse">
                                     <tr>
@@ -1050,34 +890,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-6 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         </div>
                         <div class="result-table-row row">
                             <div class="col-6">
@@ -1134,35 +946,6 @@
                                         <td class="sensitivity-change male">8.09%</td>
                                         <td class="sensitivity-change female">7.65%</td>
                                         <td class="profit-percent-average"><span class="orange-span">7.87%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-7 other-company-price"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -1229,36 +1012,6 @@
                                 </table>
                             </div>
 
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-8 other-company-price"
-                                       style="display: none;">
-
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="result-table-row row">
                             <div class="col-6">
@@ -1319,35 +1072,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table health-9 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="result-table-row row">
                             <div class="col-6">
@@ -1406,35 +1130,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table health-10 other-company-price"
-                                       style="display: none;">
-
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -1491,122 +1186,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table brand-contents other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                        </div>
-                        <div class="row result-table-row">
-                            <div class="col-6">
-
-                                <table class="table table-bordered table-hover result-table brand-contents static"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>건강</th>
-                                        <th>남자</th>
-                                        <th>여자</th>
-                                        <th>합계</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>보험료</td>
-                                        <td class="cost male">28,760</td>
-                                        <td class="cost female">25,320</td>
-                                        <td class="cost-average"><span class="orange-span">22,400</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>손익률</td>
-                                        <td class="sensitivity-change male">9.23%</td>
-                                        <td class="sensitivity-change female">10.11%</td>
-                                        <td class="profit-percent-average"><span class="orange-span">9.67%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-6">
-
-                                <table class="table table-bordered table-hover result-table brand-contents col-6 dynamic"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>건강</th>
-                                        <th>남자</th>
-                                        <th>여자</th>
-                                        <th>합계</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>보험료</td>
-                                        <td class="cost male">28,760</td>
-                                        <td class="cost female">25,320</td>
-                                        <td class="cost-average"><span class="orange-span">22,400</span></td>
-                                    </tr>
-                                    <tr>
-                                        <td>손익률</td>
-                                        <td class="sensitivity-change male">9.23%</td>
-                                        <td class="sensitivity-change female">10.11%</td>
-                                        <td class="profit-percent-average"><span class="orange-span">9.67%</span></td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table brand-contents other-company-price"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -1667,35 +1246,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-1 other-company-price"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -1754,34 +1304,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-2 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
 
                         <div class="row result-table-row">
@@ -1842,34 +1364,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-3 other-company-table"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
 
                         <div class="row result-table-row">
@@ -1928,34 +1422,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-4 other-company-table"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
 
                         <div class="row result-table-row">
@@ -2015,36 +1481,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-4 other-company-table"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -2188,34 +1624,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-6 other-company-price"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -2274,35 +1682,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-7 other-company-price"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
                             <div class="col-6">
@@ -2363,36 +1742,6 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-12">
-
-                                <table class="table table-bordered table-hover result-table joongdo-8 other-company-price"
-
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
                         <div class="row result-table-row">
 
@@ -2452,35 +1801,6 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-9 other-company-table"
-                                       style="display: none;">
-                                    <thead class="thead-inverse">
-                                    <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
-                                        <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
                         </div>
 
                         <div class="row result-table-row">
@@ -2542,30 +1862,34 @@
                                     </tbody>
                                 </table>
                             </div>
-
-                            <div class="col-12">
-                                <table class="table table-bordered table-hover result-table joongdo-10 other-company-table"
-                                       style="display: none;">
+                        </div>
+                        <div class="row">
+                            <div class="col-12 other-company-table-div" style="display: none;">
+                                <div class="other-company-table-title"
+                                     style="margin: 0 0 0 0 !important;">
+                                    유사상품 보험료 수준
+                                </div>
+                                <table class="table table-bordered table-hover result-table other-company-price">
                                     <thead class="thead-inverse">
                                     <tr>
-                                        <th>당사</th>
-                                        <th>경쟁A</th>
-                                        <th>경쟁B</th>
-                                        <th>경쟁C</th>
+                                        <th>구분</th>
+                                        <th>A</th>
+                                        <th>B</th>
+                                        <th>C</th>
+                                        <th>D</th>
+                                        <th>E</th>
+                                        <th>F</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     <tr>
-                                        <td class="company-price">0</td>
+                                        <td class="company-price">보험료</td>
                                         <td class="top other-company-price-1">0</td>
-                                        <td class="top other-compayn-price-2">0</td>
+                                        <td class="top other-company-price-2">0</td>
                                         <td class="top other-company-price-3">0</td>
-                                    </tr>
-                                    <tr>
-                                        <td class="company-price">0</td>
-                                        <td class="bottom other-company-price-1">0</td>
-                                        <td class="bottom other-compayn-price-2">0</td>
-                                        <td class="bottom other-company-price-3">0</td>
+                                        <td class="top other-company-price-3">0</td>
+                                        <td class="top other-company-price-3">0</td>
+                                        <td class="top other-company-price-3">0</td>
                                     </tr>
                                     </tbody>
                                 </table>
@@ -2584,8 +1908,13 @@
         <button class="btn" id="previous-btn">뒤로</button>
         <button class="btn" id="next-btn">다음</button>
     </div>
-    <div class="col-4" style="padding: 0 !important;">
-        <button class="btn" id="booster-run-btn">Booster FMS 계산</button>
+    <div class="col-2" style="padding: 0 !important;">
+
+        <button class="btn" id="booster-run-btn" style="position: absolute; right: -50px;">Booster FMS 계산</button>
+    </div>
+    <div class="col-2">
+        <button class="btn" id="go-to-pre-first">처음으로</button>
+
     </div>
 </div>
 </div>
@@ -2672,4 +2001,5 @@
     let _renderAll = JSON.parse(decodeURIComponent('{{{renderAll}}}'));
     let _template = '{{{template}}}';
     let _products = '{{{products}}}';
+    let _prevData = '{{{prevData}}}';
 </script>

@@ -13,16 +13,38 @@ router.get('/', (req, res) => {
 
 router.get('/first', (req, res) => {
     let renderAll = !!req.session.template;
-    console.log(req.session.products)
+    console.log(req.session.products);
 
-    res.render('first', {
-        renderAll: encodeURIComponent(JSON.stringify(renderAll)),
-        templateFront:req.session.template,
-        template:encodeURIComponent(JSON.stringify(req.session.template)),
-        products:encodeURIComponent(JSON.stringify(req.session.products)),
-        js: ['first.js'],
-        css: ['first.css']
-    })
+    let prevData = req.query.prev_data;
+    let category = req.query.category;
+    let service =req.query.service;
+    let risk = req.query.risk;
+
+    if(prevData) {
+        res.render('first', {
+            renderAll: false,
+            templateFront:req.session.template,
+            template:encodeURIComponent(JSON.stringify(req.session.template)),
+            products:encodeURIComponent(JSON.stringify(req.session.products)),
+            prevData:prevData,
+            risk:risk,
+            category:category,
+            service:service,
+            js: ['first.js'],
+            css: ['first.css']
+        })
+    }else{
+        res.render('first', {
+            renderAll: encodeURIComponent(JSON.stringify(renderAll)),
+            templateFront:req.session.template,
+            template:encodeURIComponent(JSON.stringify(req.session.template)),
+            products:encodeURIComponent(JSON.stringify(req.session.products)),
+            js: ['first.js'],
+            css: ['first.css']
+        })
+    }
+
+
 });
 
 router.get('/third', (req, res) => {
@@ -57,15 +79,9 @@ router.get('/second', (req, res) => {
 
 router.post('/second', (req, res) => {
     let body = req.body.template;
-    console.log('checked');
-    console.log(req.body.products);
-
-    console.log(body)
 
     req.session.template = body;
     req.session.products = req.body.products;
-
-    console.log(req.session.products)
 
     res.json({done: true})
 });

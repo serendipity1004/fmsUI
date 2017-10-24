@@ -1,20 +1,59 @@
 $('body').on('click', 'button', function (e) {
     let total = 0;
 
+    // $('table:visible').hide();
+
     // $(changedTable).find('td.sensitivity-change').each(function (index, item) {
     //     $(item).text(changedValues[index])
     //
     //     total += changedValues[index];
     // });
 
-    if($(this).is('#booster-run-btn') || $(this).is('.dropdown-toggle')){
-        $('.table-container').css('height', '200px');
-    }else{
-        $('.table-container').css('height', '280px');
+    if($('.result-table:visible').length < 0){
+
+        $('.other-company-table-title').hide();
     }
+
+
+    if($(this).is('#booster-run-btn')){
+        // $('.table-container').css('height', '200px');
+        $('.table-container').css('margin-top', '0')
+        $('.table-container').css('overflow', 'hidden')
+
+    }else if(!$(this).is('.dropdown-toggle')){
+        // $('.table-container').css('height', '280px');
+        $('.table-container').css('overflow-y', 'auto')
+
+    }
+
+    $('#booga-service-row-trigger').click(function (e) {
+        $('.other-company-table-title').hide();
+        $('.table-container').css('overflow-y', 'auto')
+    });
+
+    $('#we-hum-ryul-row-trigger').click(function (e) {
+        $('.other-company-table-title').hide();
+        $('.table-container').css('overflow-y', 'auto')
+
+    });
+
+    $('#previous-btn').click(function (e) {
+
+        $('.other-company-table-title').hide();
+    })
+
+
 
     // $(changedTable).find('td.profit-percent-average').text((total/2).toFixed(2) + '%');
 
+});
+
+$('#we-hum-ryul-row-trigger').click(function (e) {
+    $('.table-container').css('margin-top', '35px')
+});
+
+$('#booga-service-row-trigger').click(function (e) {
+    $('.table-container').css('margin-top', '35px')
 });
 
 $(document).ready(function () {
@@ -22,13 +61,21 @@ $(document).ready(function () {
 
     $('.booga-service-table').hide();
 
-    if (!renderAll) {
-        // $('.input-group').each(function (index, item) {
-        //     if (index > 0) {
-        //         $(item).css('visibility', 'hidden')
-        //     }
-        // });
-        // $('#booster-run-btn').hide();
+    if (!renderAll && !_prevData) {
+        $('.input-group').each(function (index, item) {
+            if (index > 0) {
+                $(item).css('visibility', 'hidden')
+            }
+        });
+        $('#booster-run-btn').hide();
+
+    } else if(_prevData){
+        $('.input-group').each(function (index, item) {
+            if(index > 1){
+                $(item).css('visibility', 'hidden')
+            }
+        });
+        $('#booster-run-btn').hide();
 
     } else {
         let template = JSON.parse(decodeURIComponent(_template));
@@ -223,14 +270,15 @@ $('#next-btn').click(function (e) {
                 $('.second').addClass('active')
             }
         })
-    } else if (hiddenRows.length > 4) {
-        $('.nav-category').each(function (index, item) {
-            if ($(item).hasClass('active')) {
-                $(item).removeClass('active');
-                $('.first').addClass('active')
-            }
-        })
     }
+    // else if (hiddenRows.length > 4) {
+    //     $('.nav-category').each(function (index, item) {
+    //         if ($(item).hasClass('active')) {
+    //             $(item).removeClass('active');
+    //             $('.first').addClass('active')
+    //         }
+    //     })
+    // }
 
     let visibleArray = [];
 
@@ -445,6 +493,8 @@ $('#booster-run-btn').click(function (e) {
     console.log(dbTrigger)
 
     $('.progress').show();
+    $('.other-company-table-title').hide();
+
 
     for (let i = 0; i < 13; i++) {
         setTimeout(function () {
@@ -455,10 +505,14 @@ $('#booster-run-btn').click(function (e) {
                 // console.log(i);
                 $('.progress').hide();
                 $('.progress-bar').css('width', 0);
-                $('.table-title').show();
-                if (data[0] === '종신보험') {
+                if (data[0] === '가족사랑') {
                     $('.jong-shin').show();
-                } else if (data[0] === '건강보험') {
+                    $('.table-title').show();
+                    $('.other-company-table-div').show();
+                    $('.other-company-price').show();
+                    $('.other-company-table-title').show();
+
+                } else if (data[0] === '건강관리') {
 
                     let service = $('.session-two').text().trim();
 
@@ -467,50 +521,97 @@ $('#booster-run-btn').click(function (e) {
                         switch (products) {
                             case ['암', '뇌출혈', '급성 심근경색'].sort().toString():
                                 $('.joongdo-1').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
                             case ['암'].toString():
                                 $('.joongdo-2').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['뇌출혈'].toString():
                                 $('.joongdo-3').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['급성 심근경색'].sort().toString():
                                 $('.joongdo-4').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['뇌출혈', '급성 심근경색'].sort().toString():
                                 $('.joongdo-5').show();
+                                $('.table-title').show();
+
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈'].sort().toString():
                                 $('.joongdo-6').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '급성 심근경색'].sort().toString():
                                 $('.joongdo-7').show();
+                                $('.table-title').show();
+
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '입원'].sort().toString():
                                 $('.joongdo-8').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '수술'].sort().toString():
                                 $('.joongdo-9').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '입원', '수술'].sort().toString():
                                 $('.joongdo-10').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
                         }
@@ -519,50 +620,95 @@ $('#booster-run-btn').click(function (e) {
                         switch (products) {
                             case ['암', '뇌출혈', '급성 심근경색'].sort().toString():
                                 $('.health-1').show();
+                                $('.table-title').show();
+
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
                             case ['암'].toString():
                                 $('.health-2').show();
+                                $('.table-title').show();
+
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['뇌출혈'].toString():
                                 $('.health-3').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['급성 심근경색'].sort().toString():
                                 $('.health-4').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['뇌출혈', '급성 심근경색'].sort().toString():
                                 $('.health-5').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈'].sort().toString():
                                 $('.health-6').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '급성 심근경색'].sort().toString():
                                 $('.health-7').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '입원'].sort().toString():
                                 $('.health-8').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
+
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '수술'].sort().toString():
                                 $('.health-9').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
 
                             case ['암', '뇌출혈', '급성 심근경색', '입원', '수술'].sort().toString():
                                 $('.health-10').show();
+                                $('.table-title').show();
+                                $('.other-company-table-div').show();
+                                $('.other-company-price').show();
+                                $('.other-company-table-title').show();
 
                                 break;
                         }
@@ -576,7 +722,11 @@ $('#booster-run-btn').click(function (e) {
                     });
 
                     if ($('.db-selection').is(':checked')) {
-                        $('.health-3').show();
+                        $('.brand-contents').show();
+                        $('.table-title').show();
+                        $('.other-company-table-div').show();
+                        $('.other-company-price').show();
+                        $('.other-company-table-title').show();
 
                     } else {
 
@@ -596,8 +746,8 @@ function respondToSliders() {
     let maleCost = parseInt($('.result-table.static:visible .cost.male').text().replace(',', '').trim());
     let femaleCost = parseInt($('.result-table.static:visible .cost.female').text().replace(',', '').trim());
 
-    let maleCalculation = (maleCost * (1 - eyulChange * 20) * Math.exp(-eyulChange) * (1 + saupbeChange/3) * Math.exp(saupbeChange));
-    let femaleCalculation = (femaleCost * (1 - eyulChange * 20) * Math.exp(-eyulChange) * (1 + saupbeChange/3) * Math.exp(saupbeChange));
+    let maleCalculation = (maleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
+    let femaleCalculation = (femaleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
 
     $('.result-table.dynamic:visible .cost.male').text(commafy(Math.floor(maleCalculation)));
     $('.result-table.dynamic:visible .cost.female').text(commafy(Math.floor(femaleCalculation)));
@@ -605,8 +755,8 @@ function respondToSliders() {
     let malePercent = parseFloat($('.result-table.static:visible .sensitivity-change.male').text().replace('%', ' ').trim());
     let femalePercent = parseFloat($('.result-table.static:visible .sensitivity-change.female').text().replace('%', ' ').trim());
 
-    let malePercentCalc = (malePercent * (1 - eyulChange * 20) * Math.exp(-eyulChange) * (1 + saupbeChange/3) * Math.exp(saupbeChange));
-    let femalePercentCalc = (femalePercent * (1 - eyulChange * 20) * Math.exp(-eyulChange) * (1 + saupbeChange/3) * Math.exp(saupbeChange));
+    let malePercentCalc = (malePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
+    let femalePercentCalc = (femalePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
 
     $('.result-table.dynamic:visible .sensitivity-change.male').text(malePercentCalc.toFixed(2) + '%');
     $('.result-table.dynamic:visible .sensitivity-change.female').text(femalePercentCalc.toFixed(2) + '%');
@@ -628,6 +778,12 @@ function respondToSliders() {
     });
 
     $('.result-table.dynamic:visible').find('td.cost-average span.orange-span').text(commafy(Math.floor(cashTotal / 2)));
+
+    let companyPrice = parseInt($('.result-table.static:visible').find('.cost-average .orange-span').text().replace(',', '').trim());
+    console.log(companyPrice)
+
+    $('.top.other-company-price-1').text(commafy(Math.floor(companyPrice * 1.15)));
+    $('.top.other-company-price-2').text(commafy(Math.floor(companyPrice * 0.95)));
 }
 
 $('#we-hum-ryul-row-trigger').click(function (e) {
@@ -669,6 +825,12 @@ $('#modal-confirm-btn-arb').click(function (e) {
 
     $('#arb-value-category-modal').modal('toggle');
 
+});
+
+$('#go-to-pre-first').click(function (e) {
+    e.preventDefault();
+
+    location.href = '/pre-first'
 });
 
 function commafy( num ) {
