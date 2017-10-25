@@ -373,14 +373,15 @@ $('#previous-btn').click(function (e) {
                 $('.second').addClass('active')
             }
         })
-    } else if (visibleRows.length === 2) {
-        $('.nav-category').each(function (index, item) {
-            if ($(item).hasClass('active')) {
-                $(item).removeClass('active');
-                $('.first').addClass('active')
-            }
-        })
     }
+    // else if (visibleRows.length === 2) {
+    //     $('.nav-category').each(function (index, item) {
+    //         if ($(item).hasClass('active')) {
+    //             $(item).removeClass('active');
+    //             // $('.first').addClass('active')
+    //         }
+    //     })
+    // }
 });
 
 let bodyEvent;
