@@ -9,18 +9,34 @@ $('body').on('click', 'button', function (e) {
     //     total += changedValues[index];
     // });
 
-    if($('.result-table:visible').length < 0){
+    if ($('.result-table:visible').length < 0) {
 
         $('.other-company-table-title').hide();
     }
 
+    // $('.service-contents-dropdown').find('a').each(function (index, item) {
+    //     if (!$(item).is('#booga-service-row-trigger')) {
+    //         $(item).css('display', 'none');
+    //     } else {
+    //         $(item).css('display', 'block');
+    //     }
+    // });
+    //
+    // $('.joong-do-dropdown-item').find('a').each(function (index, item) {
+    //     if (!$(item).is('.hyodo-jageum')) {
+    //         $(item).css('display', 'none');
+    //     } else {
+    //         $(item).css('display', 'block');
+    //     }
+    // });
 
-    if($(this).is('#booster-run-btn')){
+
+    if ($(this).is('#booster-run-btn')) {
         // $('.table-container').css('height', '200px');
         $('.table-container').css('margin-top', '0')
         $('.table-container').css('overflow', 'hidden')
 
-    }else if(!$(this).is('.dropdown-toggle')){
+    } else if (!$(this).is('.dropdown-toggle')) {
         // $('.table-container').css('height', '280px');
         $('.table-container').css('overflow-y', 'auto')
 
@@ -34,14 +50,11 @@ $('body').on('click', 'button', function (e) {
     $('#we-hum-ryul-row-trigger').click(function (e) {
         $('.other-company-table-title').hide();
         $('.table-container').css('overflow-y', 'auto')
-
     });
 
     $('#previous-btn').click(function (e) {
-
         $('.other-company-table-title').hide();
     })
-
 
 
     // $(changedTable).find('td.profit-percent-average').text((total/2).toFixed(2) + '%');
@@ -56,22 +69,190 @@ $('#booga-service-row-trigger').click(function (e) {
     $('.table-container').css('margin-top', '35px')
 });
 
+$('.dropdown-item').click(function (e) {
+    e.preventDefault();
+
+    if($(this).hasClass('service-variety')){
+        console.log('service-variety');
+        if ($(this).hasClass('brand-contents-dropdown-item')) {
+            console.log('brand contents');
+            $('.service-contents-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#booga-service-row-trigger')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+        }else if($(this).hasClass('joong-do-dropdown-item')){
+            $('.service-contents-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#hyodo-jageum')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+        } else if($(this).hasClass('service-category-null')){
+            $('.service-contents-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#service-nae-yong-null')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+        } else {
+            $('.service-contents-dropdown').find('a').each(function (index, item) {
+                $(item).css('display', 'block');
+            });
+        }
+    }
+
+    // if($(this).is('.joong-do-dropdown-item')){
+    //     $('.service-contents-dropdown').find('a').each(function (index, item) {
+    //         if (!$(item).is('#hyodo-jageum')) {
+    //             $(item).css('display', 'none');
+    //         } else {
+    //             $(item).css('display', 'block');
+    //         }
+    //     })
+    // }else{
+    //     $('.service-contents-dropdown').find('a').each(function (index, item) {
+    //         $(item).css('display', 'block');
+    //     })
+    // }
+
+    if($(this).hasClass('concept')){
+        if($(this).is('#gun-gang-dropdown-item')){
+            $('.bohum-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#10-years-bohum')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+
+            $('.nap-ip-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#10-years-napip')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+        }else if ($(this).is('#ga-jok-sarang-dropdown-item')){
+            $('.bohum-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#10-years-bohum') && !$(item).is('#20-years-bohum') && !$(item).is('#life-years-bohum')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                }
+            });
+
+            $('.nap-ip-dropdown').find('a').each(function (index, item) {
+                if (!$(item).is('#10-years-napip') && !$(item).is('#20-years-napip')) {
+                    $(item).css('display', 'none');
+                } else {
+                    $(item).css('display', 'block');
+                    console.log($(item).text());
+                }
+            });
+        } else{
+            $('.nap-ip-dropdown').find('a').each(function (index, item) {
+                $(item).css('display', 'block');
+            });
+
+            $('.bohum-dropdown').find('a').each(function (index, item) {
+                $(item).css('display', 'block');
+            });
+        }
+    }
+});
+
+// $('.service-category-null').click(function (e) {
+//     $('.session-four').text('선택안함');
+//     $('.session-four').append('<img src="/images/arrow.svg" class="arrow"/>')
+// });
+
 $(document).ready(function () {
+    if ($('.session-two').text().trim() === '선택안함') {
+        $('.service-contents-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#service-nae-yong-null')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        })
+    }
+
+    if ($('.session-two').text().trim() === '브랜드/컨텐츠') {
+        $('.service-contents-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#booga-service-row-trigger')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        })
+    }
+
+    if ($('.session-two').text().trim() === '중도자금') {
+        $('.service-contents-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#hyodo-jageum')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        })
+    }
+
+    if ($('.session-one').text().trim() === '건강관리') {
+        $('.bohum-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#10-years-bohum')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        });
+
+        $('.nap-ip-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#10-years-napip')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        })
+    }
+
+    if ($('.session-one').text().trim() === '가족사랑') {
+        $('.bohum-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#10-years-bohum') && !$(item).is('#20-years-bohum') && !$(item).is('#life-years-bohum')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        });
+
+        $('.nap-ip-dropdown').find('a').each(function (index, item) {
+            if (!$(item).is('#10-years-napip') && !$(item).is('#20-years-napip')) {
+                $(item).css('display', 'none');
+            } else {
+                $(item).css('display', 'block');
+            }
+        })
+    }
+
     let renderAll = _renderAll;
 
     $('.booga-service-table').hide();
 
     if (!renderAll && !_prevData) {
         $('.input-group').each(function (index, item) {
-            if (index > 0) {
+            if (index > 2) {
                 $(item).css('visibility', 'hidden')
             }
         });
         $('#booster-run-btn').hide();
 
-    } else if(_prevData){
+    } else if (_prevData) {
         $('.input-group').each(function (index, item) {
-            if(index > 1){
+            if (index > 2) {
                 $(item).css('visibility', 'hidden')
             }
         });
@@ -507,6 +688,90 @@ $('#booster-run-btn').click(function (e) {
                 $('.progress').hide();
                 $('.progress-bar').css('width', 0);
                 if (data[0] === '가족사랑') {
+                    let bohumTerms = $('.session-five').text().trim();
+                    let payTerms = $('.session-six').text().trim();
+                    let priceMultiplier;
+                    let percentMultiplier;
+
+                    if(bohumTerms === '10년' && payTerms === '10년'){
+                        priceMultiplier = 0.5;
+                    }else if(bohumTerms === '10년' && payTerms === '20년'){
+                        priceMultiplier = 0.3;
+                    }else if (bohumTerms === '20년' && payTerms === '10년'){
+                        priceMultiplier = 0.85;
+                    }else if (bohumTerms === '20년' && payTerms === '20년'){
+                        priceMultiplier = 0.5;
+                    }else if (bohumTerms === '종신' && payTerms === '10년'){
+                        priceMultiplier = 1.7
+                    }else if (bohumTerms === '종신' && payTerms === '20년'){
+                        priceMultiplier = 1;
+                    }else{
+                        priceMultiplier = 1;
+                    }
+
+                    console.log(priceMultiplier);
+
+                    if(bohumTerms === '10년' && payTerms === '10년'){
+                        percentMultiplier = 1.08;
+                    }else if(bohumTerms === '10년' && payTerms === '20년'){
+                        percentMultiplier = 1.2;
+                    }else if (bohumTerms === '20년' && payTerms === '10년'){
+                        percentMultiplier = 0.99;
+                    }else if (bohumTerms === '20년' && payTerms === '20년'){
+                        percentMultiplier = 1.1;
+                    }else if (bohumTerms === '종신' && payTerms === '10년'){
+                        percentMultiplier = 0.9;
+                    }else if (bohumTerms === '종신' && payTerms === '20년'){
+                        percentMultiplier = 1;
+                    }else {
+                        percentMultiplier = 1;
+                    }
+
+                    console.log(percentMultiplier)
+
+                    let malePriceRef = parseInt($('.jong-shin-reference .cost.male').text().replace(',', ''));
+                    let femalePriceRef = parseInt($('.jong-shin-reference .cost.female').text().replace(',', ''));
+
+                    $('.jong-shin.static .cost.male').text(commafy(Math.floor(malePriceRef * priceMultiplier)));
+                    $('.jong-shin.static .cost.female').text(commafy(Math.floor(femalePriceRef* priceMultiplier)));
+
+                    $('.jong-shin.static .cost-average .orange-span').text(commafy(Math.floor((malePriceRef * priceMultiplier + femalePriceRef * priceMultiplier)/2)));
+
+                    let malePercentRef = parseFloat($('.jong-shin-reference .sensitivity-change.male').text().replace('%', ''));
+                    let femalePercentRef = parseFloat($('.jong-shin-reference .sensitivity-change.female').text().replace('%', ''));
+
+                    $('.jong-shin.static .sensitivity-change.male').text((malePercentRef * percentMultiplier).toFixed(2) + '%');
+                    $('.jong-shin.static .sensitivity-change.female').text((femalePercentRef * percentMultiplier).toFixed(2) + '%');
+
+                    $('.jong-shin.static .profit-percent-average .orange-span').text(((malePercentRef * percentMultiplier + femalePercentRef * percentMultiplier)/2).toFixed(2) + '%');
+
+                    // $('.jong-shin.static').find('td').each(function (index, item) {
+                    //     if($(item).hasClass('cost')){
+                    //         let curCost = parseInt($(item).text().replace(',', ''));
+                    //         $(item).text(commafy(Math.floor(curCost * priceMultiplier)));
+                    //     }
+                    // });
+                    //
+                    // let malePrice = parseInt($('.jong-shin-reference .cost.male').text().replace(',', ''));
+                    // let femalePrice = parseInt($('.jong-shin-reference .cost.female').text().replace(',', ''));
+                    //
+                    // console.log(malePrice);
+                    // console.log(femalePrice);
+                    //
+                    // $('.cost-average .orange-span').text(commafy(Math.floor((malePrice + femalePrice) / 2)));
+                    //
+                    // $('.jong-shin.static').find('td').each(function (index, item) {
+                    //     if($(item).hasClass('sensitivity-change')){
+                    //         let curCost = parseFloat($(item).text().replace('%', ''));
+                    //         $(item).text((curCost * percentMultiplier).toFixed(2) + '%')
+                    //     }
+                    // });
+                    //
+                    // let malePercent = parseFloat($('.jong-shin-reference .sensitivity-change.male').text().replace('%', ''));
+                    // let femalePercent = parseFloat($('.jong-shin-reference .sensitivity-change.female').text().replace('%', ''));
+                    //
+                    // $('.profit-percent-average .orange-span').text(((malePercent + femalePercent) / 2).toFixed(2) + '%');
+
                     $('.jong-shin').show();
                     $('.table-title').show();
                     $('.other-company-table-div').show();
@@ -747,8 +1012,8 @@ function respondToSliders() {
     let maleCost = parseInt($('.result-table.static:visible .cost.male').text().replace(',', '').trim());
     let femaleCost = parseInt($('.result-table.static:visible .cost.female').text().replace(',', '').trim());
 
-    let maleCalculation = (maleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
-    let femaleCalculation = (femaleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
+    let maleCalculation = (maleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange * 9) * (1 + saupbeChange / 6) * Math.exp(saupbeChange / 6));
+    let femaleCalculation = (femaleCost * (1 - eyulChange * 9) * Math.exp(-eyulChange * 9) * (1 + saupbeChange / 6) * Math.exp(saupbeChange / 6));
 
     $('.result-table.dynamic:visible .cost.male').text(commafy(Math.floor(maleCalculation)));
     $('.result-table.dynamic:visible .cost.female').text(commafy(Math.floor(femaleCalculation)));
@@ -756,8 +1021,8 @@ function respondToSliders() {
     let malePercent = parseFloat($('.result-table.static:visible .sensitivity-change.male').text().replace('%', ' ').trim());
     let femalePercent = parseFloat($('.result-table.static:visible .sensitivity-change.female').text().replace('%', ' ').trim());
 
-    let malePercentCalc = (malePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
-    let femalePercentCalc = (femalePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange*9) * (1 + saupbeChange/6) * Math.exp(saupbeChange/6));
+    let malePercentCalc = (malePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange * 9) * (1 + saupbeChange / 6) * Math.exp(saupbeChange / 6));
+    let femalePercentCalc = (femalePercent * (1 - eyulChange * 9) * Math.exp(-eyulChange * 9) * (1 + saupbeChange / 6) * Math.exp(saupbeChange / 6));
 
     $('.result-table.dynamic:visible .sensitivity-change.male').text(malePercentCalc.toFixed(2) + '%');
     $('.result-table.dynamic:visible .sensitivity-change.female').text(femalePercentCalc.toFixed(2) + '%');
@@ -834,7 +1099,7 @@ $('#go-to-pre-first').click(function (e) {
     location.href = '/pre-first'
 });
 
-function commafy( num ) {
+function commafy(num) {
     return num.toLocaleString();
     // let str = num.toString().split('.');
     // if (str[0].length >= 5) {

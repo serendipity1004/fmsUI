@@ -40,13 +40,13 @@
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>가족사랑</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>건강관리</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>부자되기</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>상속증여</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>레져생활</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>기부봉사</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>임의설계</h5></a>
+                                        <a class="dropdown-item concept" id="ga-jok-sarang-dropdown-item" href="#"><h5>가족사랑</h5></a>
+                                        <a class="dropdown-item concept" id="gun-gang-dropdown-item" href="#"><h5>건강관리</h5></a>
+                                        <a class="dropdown-item concept" href="#"><h5>부자되기</h5></a>
+                                        <a class="dropdown-item concept" href="#"><h5>상속증여</h5></a>
+                                        <a class="dropdown-item concept" href="#"><h5>레져생활</h5></a>
+                                        <a class="dropdown-item concept" href="#"><h5>기부봉사</h5></a>
+                                        <a class="dropdown-item concept" href="#"><h5>임의설계</h5></a>
                                     </div>
                                 </div>
                                 <div class="label right">서비스 종류</div>
@@ -63,16 +63,16 @@
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>적립</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>중도자금</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>할인</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>제휴</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>보증</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>드림플러스</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>주모</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>브랜드/컨텐츠</h5></a>
-                                        <a class="dropdown-item arb-value-category" href="#"><h5>임의입력</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>선택안함</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>적립</h5></a>
+                                        <a class="dropdown-item service-variety joong-do-dropdown-item" href="#"><h5>중도자금</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>할인</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>제휴</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>보증</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>드림플러스</h5></a>
+                                        <a class="dropdown-item service-variety" href="#"><h5>주모</h5></a>
+                                        <a class="dropdown-item service-variety brand-contents-dropdown-item" href="#"><h5>브랜드/컨텐츠</h5></a>
+                                        <a class="dropdown-item service-variety arb-value-category" href="#"><h5>임의입력</h5></a>
+                                        <a class="dropdown-item service-variety service-category-null" href="#"><h5>선택안함</h5></a>
                                     </div>
                                 </div>
                             </div>
@@ -177,13 +177,13 @@
 
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-menu service-contents-dropdown" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#"><h5>체증형</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>효도자금형<br/></h5></a>
+                                        <a class="dropdown-item" id="hyodo-jageum" href="#"><h5>효도자금형<br/></h5></a>
                                         <a class="dropdown-item" id="booga-service-row-trigger" href="#"><h5>
                                             서비스DB선택</h5>
                                         </a>
-                                        <a class="dropdown-item" href="#"><h5>선택안함</h5></a>
+                                        <a class="dropdown-item" id="service-nae-yong-null" href="#"><h5>선택안함</h5></a>
 
                                     </div>
                                 </div>
@@ -201,13 +201,13 @@
                                         {{/if}}
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="#"><h5>종신</h5></a>
+                                    <div class="dropdown-menu bohum-dropdown" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" id="life-years-bohum" href="#"><h5>종신</h5></a>
                                         <a class="dropdown-item" href="#"><h5>1년</h5></a>
                                         <a class="dropdown-item" href="#"><h5>2년</h5></a>
                                         <a class="dropdown-item" href="#"><h5>3년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>10년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>20년</h5></a>
+                                        <a class="dropdown-item" id="10-years-bohum" href="#"><h5>10년</h5></a>
+                                        <a class="dropdown-item" id="20-years-bohum" href="#"><h5>20년</h5></a>
                                     </div>
                                 </div>
                                 <div class="label right">납입 기간</div>
@@ -220,13 +220,13 @@
                                         {{/if}}
                                         <img src="/images/arrow.svg" class="arrow"/>
                                     </button>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <div class="dropdown-menu nap-ip-dropdown" aria-labelledby="dropdownMenuButton">
                                         <a class="dropdown-item" href="#"><h5>일시</h5></a>
                                         <a class="dropdown-item" href="#"><h5>1년</h5></a>
                                         <a class="dropdown-item" href="#"><h5>2년</h5></a>
                                         <a class="dropdown-item" href="#"><h5>3년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>10년</h5></a>
-                                        <a class="dropdown-item" href="#"><h5>20년</h5></a>
+                                        <a class="dropdown-item" id="10-years-napip" href="#"><h5>10년</h5></a>
+                                        <a class="dropdown-item" id="20-years-napip" href="#"><h5>20년</h5></a>
                                     </div>
                                 </div>
                             </div>
@@ -481,6 +481,31 @@
 
                         <div class="result-table-row row">
                             <div class="col-6">
+                                <table class="table table-bordered table-hover result-table jong-shin-reference"
+                                       style="display: none;">
+                                    <thead class="thead-inverse">
+                                    <tr>
+                                        <th></th>
+                                        <th>남자</th>
+                                        <th>여자</th>
+                                        <th>합계</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td>보험료</td>
+                                        <td class="cost male">262,000</td>
+                                        <td class="cost female">214,000</td>
+                                        <td class="cost-average"><span class="orange-span">238,000</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>손익률</td>
+                                        <td class="sensitivity-change male">8.34%</td>
+                                        <td class="sensitivity-change female">9.33%</td>
+                                        <td class="profit-percent-average"><span class="orange-span">8.84%</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                                 <table class="table table-bordered table-hover result-table jong-shin static"
                                        style="display: none;">
                                     <thead class="thead-inverse">
@@ -1788,12 +1813,12 @@
                                     <thead class="thead-inverse">
                                     <tr>
                                         <th>구분</th>
-                                        <th>A</th>
-                                        <th>B</th>
-                                        <th>C</th>
-                                        <th>D</th>
-                                        <th>E</th>
-                                        <th>F</th>
+                                        <th>A사</th>
+                                        <th>B사</th>
+                                        <th>C사</th>
+                                        <th>D사</th>
+                                        <th>E사</th>
+                                        <th>F사</th>
                                     </tr>
                                     </thead>
                                     <tbody>
